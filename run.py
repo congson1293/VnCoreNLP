@@ -25,12 +25,10 @@ def get_posttag():
 
     pos = postagger.pos_tag(data)
     response = {'result' : pos}
-    return jsonify(response)
+    return json.dumps(response, ensure_ascii=False)
 
 
 
 
 if __name__ == '__main__':
-    sen = u'nâng_cao ý_thức phòng, chống dịch do virus_corona gây_ra'
-    print(get_posttag(sen))
-    postagger.close()
+    app.run('0.0.0.0', port=8501)
